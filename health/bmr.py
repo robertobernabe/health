@@ -5,6 +5,8 @@ class BMRCalculator(object):
     """BMR is short for Basal Metabolic Rate.
     Your Basal Metabolic Rate is the number of calories required to keep your
     body functioning at rest, also known as your metabolism.
+
+    BMR is the number of calories burned whilst resting.
     """
 
     def __init__(self, age, height, weight, gender):
@@ -14,7 +16,8 @@ class BMRCalculator(object):
         self.gender = gender
 
     def calculate_metabolism_kcal(self):
-        """kcal / 24hrs
+        """BMR is the number of calories burned whilst resting
+        :return int kcal / 24 hours
         """
         _ = None
         if self.gender == GENDER_MALE:
