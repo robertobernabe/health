@@ -1,6 +1,11 @@
 from health import GENDER_FEMALE, GENDER_MALE
 
-class MetaBolismCalculator(object):
+
+class BMRCalculator(object):
+    """BMR is short for Basal Metabolic Rate.
+    Your Basal Metabolic Rate is the number of calories required to keep your
+    body functioning at rest, also known as your metabolism.
+    """
 
     def __init__(self, age, height, weight, gender):
         self.weight = float(weight)
@@ -8,7 +13,9 @@ class MetaBolismCalculator(object):
         self.age = age
         self.gender = gender
 
-    def calculate_metabolism(self):
+    def calculate_metabolism_kcal(self):
+        """kcal / 24hrs
+        """
         _ = None
         if self.gender == GENDER_MALE:
             _ = self._calculate_metabolism_male()
@@ -24,4 +31,5 @@ class MetaBolismCalculator(object):
 
 
 if __name__ == '__main__':
-    assert MetaBolismCalculator(29, 172, 70, GENDER_FEMALE).calculate_metabolism() == 1500
+    assert BMRCalculator(29, 172, 70, GENDER_FEMALE).calculate_metabolism_kcal() == 1500
+    print(BMRCalculator(34, 173, 68, GENDER_MALE).calculate_metabolism_kcal())
